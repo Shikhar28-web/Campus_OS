@@ -14,8 +14,8 @@ export const ThemeContext = createContext<ThemeCtx>({ dark: false, toggle: () =>
 export const useTheme = () => useContext(ThemeContext)
 
 /* ── Nav context (lets child pages navigate) ─────── */
-type NavCtx = { screen: Screen; go: (s: Screen) => void }
-export const NavContext = createContext<NavCtx>({ screen: 'dashboard', go: () => {} })
+type NavCtx = { screen: Screen; go: (s: Screen, taskId?: string) => void; selectedTaskId: string | null }
+export const NavContext = createContext<NavCtx>({ screen: 'dashboard', go: () => {}, selectedTaskId: null })
 export const useNav = () => useContext(NavContext)
 
 /* ── Nav items ──────────────────────────────────────── */
@@ -30,13 +30,17 @@ const NAV = [
 export default function App() {
   const [dark, setDark]     = useState(false)
   const [screen, setScreen] = useState<Screen>('dashboard')
+  const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null)
 
   const toggle = () => setDark(d => !d)
-  const go     = (s: Screen) => setScreen(s)
+  const go     = (s: Screen, taskId?: string) => {
+    setScreen(s)
+    if (taskId) setSelectedTaskId(taskId)
+  }
 
   return (
     <ThemeContext.Provider value={{ dark, toggle }}>
-      <NavContext.Provider value={{ screen, go }}>
+      <NavContext.Provider value={{ screen, go, selectedTaskId }}>
         <div className={dark ? 'dark' : ''}>
           <div className="min-h-screen bg-slate-50 dark:bg-gray-950 font-sans">
 
