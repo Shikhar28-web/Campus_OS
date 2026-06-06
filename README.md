@@ -1,20 +1,45 @@
-# CampusOS
-Team Angaar
+# CampusOS 🎓
 
-Minimal mobile-first prototype (Vite + React + TypeScript + Tailwind) implementing the CampusOS UI design.
+Your AI-powered student operating system — built for hackathons and real campus life.
 
-Run locally:
+## Project Structure
 
-1. Install dependencies
-
-```bash
-npm install
+```
+CampusOS/
+└── frontend/   ← React + Vite + TypeScript + Tailwind CSS
 ```
 
-2. Start development server
+## Frontend
+
+### Tech Stack
+- React 18 + TypeScript
+- Vite 5
+- Tailwind CSS 3
+- Mobile-first, dark/light theme
+
+### Getting Started
 
 ```bash
+cd frontend
+npm install
 npm run dev
 ```
 
-This scaffold includes the core mobile screens: Dashboard, Life Inbox, AI Focus Engine, Academic Pulse, Task Details, and Voice Capture. It's a UI-first prototype with mock data; next steps are accessibility tweaks, tests, and AI backend integration.
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Network Access (LAN / phone preview)
+
+```bash
+cd frontend
+npm run dev
+```
+
+The terminal will show a **Network** URL — open that on any device on the same Wi-Fi.
+
+### Features
+- 🏠 **Dashboard** — Pulse score, quick actions, AI-recommended task
+- 📥 **Life Inbox** — Capture screenshots, PDFs, voice notes
+- ⚡ **Focus Engine** — Pomodoro timer, AI schedule, task selector
+- 📊 **Academic Pulse** — Per-subject scores, deadlines, weekly activity
+- 🎤 **Voice Capture** — Record / upload voice notes, AI transcription
+- 🌙 **Dark / Light theme** toggle on every screen
